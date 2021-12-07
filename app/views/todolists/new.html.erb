@@ -1,0 +1,25 @@
+<h1>新規投稿</h1>
+<% if @list.errors.any? %>
+ <%= @list.errors.count %>件のエラーが発生しました %>
+ <% @list.errors.full_messages.each do |message| %>
+  <%= message %>
+ <% end %>
+<% end %>
+
+<!-- form_with部分 フォームを作成する-->
+<!-- インスタンス変数をfに代入 -->
+<%= form_with model: @list, url:'/todolists', local:true do |f| %>
+  <!-- フォームオブジェクト -->
+  <h4>タイトル</h4>
+  <!-- フォーム入力欄 -->
+  <%= f.text_field :title %>
+  <h4>本文</h4>
+  <!-- フォーム入力欄 -->
+  <%= f.text_area :body %>
+  <h4>画像</h4>
+  <!-- フォーム入力欄 -->
+  <%= f.attachment_field :image %>
+  
+  <!-- 投稿ボタン -->
+  <%= f.submit '投稿' %>
+<% end %>

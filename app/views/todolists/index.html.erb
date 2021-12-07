@@ -1,0 +1,15 @@
+<h1>投稿一覧</h1>
+<!-- @listsから取得したデータを一つずつはめ込む -->
+<% @lists.each do |list| %>
+  <p>タイトル</p>
+  <span>
+    <!-- 詳細画面へのリンク -->
+    <!-- todolist_pass(list.id) = "/todolists/#{list.id}"
+    <%= link_to list.title, todolist_path(list.id) %>
+  </span>
+  <p>画像</p>
+  <!-- attachment_image_tagを埋め込む -->
+  <!-- :fillは画像の幅、高さはpx、拡張子をformatで指定 -->
+  <%= attachment_image_tag list, :image, :fill, 100, 100, format: 'jpeg' %>
+
+<% end %>
